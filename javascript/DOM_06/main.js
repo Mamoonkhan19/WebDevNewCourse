@@ -43,17 +43,19 @@ Fl.style.color = 'black';
 
 Fl.innerText = "helloworld";
 
-console.log('unorder list => ',ul);
-console.log('First List Item => ',Fl);
+// console.log('unorder list => ',ul);
+// console.log('First List Item => ',Fl);
 
 
-// querySelectorAll will try to find the key in all the document and then will store it in the node list
+// querySelectorAll will try to find the key in all the document and then will store it in the Nodelist
 // it will always give an array/nodeList
 // after that we can acces it by the array methood like filter foreach map etc
 let TempLiList = document.querySelectorAll('li');
 let number = 1;
 // it simeler to array but not array
 // and we have acces to the foreach loop in prototypes
+// console.log(TempLiList);
+
 TempLiList.forEach((item)=>{
     item.style.color = 'black';
     item.innerText = number++;
@@ -76,7 +78,7 @@ H2.forEach((item)=>{
     item.style.color = "green";
     item.style.backgroundColor = 'lightgray';
 })
-console.log(H2);
+// console.log(H2);
 
 // getElementsByClassName
 // return type is htmlcollection so we can basically convert it into array
@@ -85,7 +87,7 @@ console.log(H2);
 // also when we call something by classname it is converted into a htmlcollection
 // and  when we call it by id it is unique so we get only one element
 
-let classname = document.getElementsByClassName("helloworld"); // HTMLCollection[]
+let classname = document.getElementsByClassName("smallheading"); // HTMLCollection[]
 let ConvertedHtmlCollection = Array.from(className);// array = [0,1,2,3];
 
 ConvertedHtmlCollection.forEach((item)=>{
@@ -98,3 +100,4 @@ ArrayOfSH.forEach((s)=>{
     s.style.color = 'white';
     s.style.backgroundColor = 'black'
 })
+
