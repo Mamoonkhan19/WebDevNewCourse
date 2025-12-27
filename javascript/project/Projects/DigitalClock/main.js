@@ -3,7 +3,8 @@ let clock = document.querySelector("#clock")
 
 let divDate = document.querySelector("#Date")
 divDate.innerHTML = `<h3>${Dates.toLocaleDateString()}</h3>`
-setInterval(()=>{
+let h = ()=> {
+    setInterval(()=>{
     let date = new Date();
     let time = date.toLocaleTimeString("default",{
         'minute': 'numeric',
@@ -11,6 +12,6 @@ setInterval(()=>{
         'second':'numeric'
     })
     clock.innerHTML = `<h3>${time}</h3>`
-},1000)
-
-console.log("hello world")
+},2000)
+}
+h()
