@@ -36,23 +36,57 @@
 // })
 
 let promiseFour = new Promise((res,rej)=>{
-
+    
     setTimeout(() => {
+
         let error = false
-        if(!error){
+        if(error){
             res({username:"mamoonkhan",age : 20})
         }else{
-            rej("you got an error")
+            rej("you got an name error")
         }
+
     }, 1000);
+
 })
 // chaining in chaing we will the value to the other nighbour and he will acces it through argumants
 // {username:u,age:a}
+
 promiseFour
-.then((res) => {
-    return res;
+.then((userObject)=>{
+    console.log(userObject);
+    return userObject.username;
 })
-.then((username)=>{
-    console.log(username.username,username.age);
+.then((age)=>{
+    console.log(age);
 })
-.catch( error => console.log(error) )
+.catch((err)=>{
+    console.log(err);
+})
+
+async function name() {
+    let promiseFive = new Promise((res,rej)=>{
+            setTimeout(() => {
+    
+            let error = false
+            if(error){
+                res({username:"JavaScript",age : 25})
+            }else{
+                rej("you got an JS error")
+            }
+    
+        }, 2000);
+    
+    })
+    try {
+        const response = await promiseFive;
+        console.log(response.username);
+        
+    } catch (err) {
+        console.log(err);
+    }
+}
+
+name()
+
+console.log("hello world");
