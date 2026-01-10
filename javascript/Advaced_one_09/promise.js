@@ -1,39 +1,39 @@
-// let promiseOne = new Promise((res,rej)=>{
-//     setTimeout(()=>{
-//         console.log("hello world");
-//         res();
-//     },1000)
-// })
-// promiseOne.then(()=>{
-//     console.log("hello world from function itself");
+let promiseOne = new Promise((res,rej)=>{
+    setTimeout(()=>{
+        console.log("hello world");
+        res();
+    },1000)
+})
+promiseOne.then(()=>{
+    console.log("hello world from function itself");
     
-// })
-// console.log("outer one 1");
+})
+console.log("outer one 1");
 
-// new Promise((res,rej)=>{
-//     setTimeout(()=>{
-//         console.log("hello 2");
-//         res()
+new Promise((res,rej)=>{
+    setTimeout(()=>{
+        console.log("hello 2");
+        res()
         
-//     },1010);
-// })
-// .then(()=>{
-//     console.log("hello form res 2");
+    },1010);
+})
+.then(()=>{
+    console.log("hello form res 2");
     
-// })
+})
 
-// console.log("outer one 2");
+console.log("outer one 2");
 
-// let promiseThree = new Promise((res,rej)=>{
-//     setTimeout(() => {
-//         res({username:"mamoonkhan",age : 20})
-//     }, 2000);
-// })
+let promiseThree = new Promise((res,rej)=>{
+    setTimeout(() => {
+        res({username:"mamoonkhan",age : 20})
+    }, 2000);
+})
 
-// promiseThree.then(({username:u,age:a})=>{
-//     console.log(u,a);
+promiseThree.then(({username:u,age:a})=>{
+    console.log(u,a);
     
-// })
+})
 
 let promiseFour = new Promise((res,rej)=>{
     
@@ -58,10 +58,10 @@ promiseFour
     return userObject.username;
 })
 .then((age)=>{
-    console.log(age);
+    console.log("sdf",age);
 })
 .catch((err)=>{
-    console.log(err);
+    console.log("sdf",err);
 })
 
 async function name() {
@@ -88,5 +88,44 @@ async function name() {
 }
 
 name()
-
 console.log("hello world");
+
+
+// async function getAllUsers (){
+//     try {
+//         const response = await fetch('https://jsonplaceholder.typicode.com/users')
+//         const data = await response.json("")
+//         data.forEach(users => {
+//             console.log(users.id);
+// 	    console.log(users.login)
+//         });
+        
+//     } catch (err) {
+//         console.log(err);
+//     }
+// }
+// getAllUsers()
+
+async function getAllUsers(params) {
+    try {
+        let response = await fetch('https://jsonplaceholder.typicode.com/users')
+        let data = await response.json();
+        console.log(data);
+       
+    } catch (error) {
+        console.log(error);
+                
+    }
+}
+getAllUsers()
+fetch('https://jsonplaceholder.typicode.com/users')
+.then((d)=>{
+    return d.json()
+})
+.then((d)=>{
+    console.log("Fetch",d);
+    
+})
+.catch((e)=>{
+    console.log(e);
+})
